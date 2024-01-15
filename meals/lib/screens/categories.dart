@@ -4,6 +4,10 @@ import 'package:meals/widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
+  
+  void _selectCategory(){
+    
+  }
 
   @override
   Widget build(context) {

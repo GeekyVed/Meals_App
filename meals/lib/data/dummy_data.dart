@@ -415,7 +415,7 @@ const dummyMeals = [
     affordability: Affordability.luxurious,
     complexity: Complexity.simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
+        'https://cdn.pixabay.com/photo/2017/07/16/10/43/kot-2508858_1280.jpg',
     duration: 30,
     ingredients: [
       'Dog Poop',
