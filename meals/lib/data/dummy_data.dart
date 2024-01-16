@@ -55,6 +55,16 @@ const availableCategories = [
     title: 'Summer',
     color: Colors.teal,
   ),
+  Category(
+    id: 'c11',
+    title: 'Indian',
+    color: Colors.blueGrey,
+  ),
+  Category(
+    id: 'c12',
+    title: 'Special',
+    color: Colors.limeAccent,
+  ),
 ];
 
 const dummyMeals = [
@@ -409,7 +419,7 @@ const dummyMeals = [
   Meal(
     id: 'm11',
     categories: [
-      'c11',
+      'c12',
     ],
     title: 'Kutte Ki Tatti',
     affordability: Affordability.luxurious,
@@ -436,4 +446,5 @@ const dummyMeals = [
     isVegetarian: true,
     isLactoseFree: true,
   ),
+  
 ];
