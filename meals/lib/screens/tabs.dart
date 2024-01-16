@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals/models/meal.dart';
 import 'package:meals/screens/categories.dart';
 import 'package:meals/screens/meals.dart';
 
@@ -19,13 +20,46 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  //For Favourite Feature
+  final List<Meal> _favouriteMeals = [];
+
+  void showInfoMessage(String message) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+        ),
+      ),
+    );
+  }
+
+  void _toggleMealFavoriteStatus(Meal meal) {
+    if (_favouriteMeals.contains(meal)) {
+      setState(() {
+        _favouriteMeals.remove(meal);
+        showInfoMessage('Meal is no longer a favourite.');
+      });
+    } else {
+      setState(() {
+        _favouriteMeals.add(meal);
+        showInfoMessage('Marked as a favourite!');
+      });
+    }
+  }
+
   @override
   Widget build(context) {
-    Widget activePage = CategoriesScreen();
+    Widget activePage = CategoriesScreen(
+      onToggleFavourite: _toggleMealFavoriteStatus,
+    );
     var activePageTitle = 'Categories';
 
     if (_selectedPageIndex == 1) {
-      activePage = MealsScreen(meals: []);
+      activePage = MealsScreen(
+        meals: _favouriteMeals,
+        onToggleFavourite: _toggleMealFavoriteStatus,
+      );
       activePageTitle = 'Your Favourites';
     }
 
