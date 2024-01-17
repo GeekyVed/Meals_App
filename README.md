@@ -23,7 +23,7 @@ The Meal Explorer Flutter App is a mobile application designed for exploring mea
 2. Explore meal categories, mark favorites, and navigate using the sidebar.
 
 ## Screenshots:
-![Screenshot 1](https://github.com/GeekyVed/Meals_App/assets/121000404/8532d2e7-76c0-41bb-8172-0f60b5041e30)624ea-ef82-434b-8025-59006310801a)
+![Screenshot 1](https://github.com/GeekyVed/Meals_App/assets/121000404/8532d2e7-76c0-41bb-8172-0f60b5041e30)
 ![Screenshot 2](https://github.com/GeekyVed/Meals_App/assets/121000404/3e3c095d-5f39-4193-b68c-ffa02f85e8c7)
 ![Screenshot 3](https://github.com/GeekyVed/Meals_App/assets/121000404/ee9207ed-3263-495b-aa94-56d2668e010c)
 ![Screenshot 4](https://github.com/GeekyVed/Meals_App/assets/121000404/e02bbbba-7b72-4f82-9e3c-2d09b47254e0)
