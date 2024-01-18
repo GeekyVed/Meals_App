@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meals/models/meal.dart';
@@ -13,9 +15,8 @@ class MealDetailsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-final favouriteMeals = ref.watch(favouriteMealsProvider);
-final isFavourite = favouriteMeals.contains(meal);
-
+    final favouriteMeals = ref.watch(favouriteMealsProvider);
+    final isFavourite = favouriteMeals.contains(meal);
 
     return Scaffold(
       appBar: AppBar(
@@ -35,8 +36,20 @@ final isFavourite = favouriteMeals.contains(meal);
                 ),
               );
             },
-            icon: Icon(isFavourite?
-              Icons.star : Icons.star_border,
+            icon: AnimatedSwitcher(
+              duration: const Duration(
+                milliseconds: 300,
+              ),
+              transitionBuilder: (child, animation) {
+                return RotationTransition(
+                  turns: Tween<double>(begin: 0.8, end: 1).animate(animation),
+                  child: child,
+                );
+              },
+              child: Icon(
+                isFavourite ? Icons.star : Icons.star_border,
+                key: ValueKey(isFavourite),
+              ),
             ),
           ),
         ],
@@ -44,11 +57,14 @@ final isFavourite = favouriteMeals.contains(meal);
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(
-              meal.imageUrl,
-              height: 300,
-              width: double.infinity,
-              fit: BoxFit.cover,
+            Hero(
+              tag: meal.id,
+              child: Image.network(
+                meal.imageUrl,
+                height: 300,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
             const SizedBox(
               height: 14,
